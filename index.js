@@ -1,7 +1,7 @@
 import express from "express";
-console.log("esto es una prueba2");
 //El archivo ppal del backend lo vamos a dividir en 3 partes
-
+const app = express();
+app.set("port", process.env.PORT || 4000);
 // 1. Configuraciones inciales como el puerto (aquí le pedimos ayuda a Express)
 
 // 2. Vamos a configurar en el medio del proyecto algo que se llama middlewares (son funciones de JS)
