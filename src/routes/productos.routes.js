@@ -1,9 +1,12 @@
 import { Router } from "express"; //Esta librería de express me va a dejar crear rutas
-import { listarProductos } from "../controllers/productos.controllers.js";
+import {
+  crearProducto,
+  listarProductos,
+} from "../controllers/productos.controllers.js";
 
 const router = Router();
 
-router.route("/producto").get(listarProductos);
+router.route("/producto").get(listarProductos).post(crearProducto);
 //route es un método y es la habilidad que tiene ese enrutador de crearme una ruta
 
 /* En esta función tengo que poner una serie de lógicas que validen algunos datos, que vaya y
