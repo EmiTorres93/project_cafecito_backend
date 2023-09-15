@@ -13,12 +13,23 @@ export const listarProductos = (req, res) => {
 es lo que me ha pedido el usuario y el 2do valor es un objeto que tiene una serie de métodos
 que me premiten responderle a quien me hizo la solicitud */
 
-export const crearProducto = (req, res) => {
+export const crearProducto = async (req, res) => {
   try {
     //esta función tiene que ir a la BD y pedir los productos
+    // aquí los datos deberían estar validados
     console.log(req.body);
-    res.send("se crea un producto");
+    //res.send("se crea un producto");
+    //creo un nuevo producto
+    const productoNuevo = new Producto(req.body);
+    //guardar el producto en el backend
+    await productoNuevo.save();
+    res.status(201).json({
+      menssaje: "El producto fue creado correctamente",
+    });
   } catch (error) {
     console.log(error);
+    res.status(400).json({
+      menssaje: "El producto no pudo ser creado",
+    });
   }
 };
