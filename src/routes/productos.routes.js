@@ -4,13 +4,18 @@ import {
   crearProducto,
   editarProducto,
   listarProductos,
+  obtenerProducto,
 } from "../controllers/productos.controllers.js";
 
 const router = Router();
 
 router.route("/producto").get(listarProductos).post(crearProducto);
 //route es un método y es la habilidad que tiene ese enrutador de crearme una ruta
-router.route("/producto/:id").put(editarProducto).delete(borrarProducto);
+router
+  .route("/producto/:id")
+  .put(editarProducto)
+  .delete(borrarProducto)
+  .get(obtenerProducto);
 
 /* En esta función tengo que poner una serie de lógicas que validen algunos datos, que vaya y
 se conecte a la BDD, que traiga la lista de productos y que envíe la respuesta al frontend que
