@@ -38,3 +38,49 @@ export const crearProducto = async (req, res) => {
     });
   }
 };
+
+export const editarProducto = async (req, res) => {
+  try {
+    // extraer el parámetro id de la ruta
+    console.log(req.params.id); //con params es la forma que le extraigo el id de la solicitud, en postman puse identificador luego de la / y esa palabra es la que me muestra (sería el id)
+    console.log(req.body); //req.body veo el body con params.id vería el id
+    //modificar un producto
+    await Producto.findByIdAndUpdate(req.params.id, req.body);
+
+    res.status(200).json({
+      menssaje: "El producto fue editado correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      menssaje: "No se pudo editar el producto",
+    });
+  }
+};
+
+export const borrarProducto = async (req, res) => {
+  try {
+    await Producto.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      menssaje: "El producto fue eliminado correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      mensaje: "No se pudo eliminar el producto",
+    });
+  }
+};
+
+export const obtenerProducto = async (req, res) => {
+  try {
+    const productoBuscado = await Producto.findById(req.params.id);
+    //se puede agregar un if para trabajar el caso de tener un null
+    res.status(200).json(productoBuscado);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      mensaje: "No se pudo obtener información del producto",
+    });
+  }
+};
