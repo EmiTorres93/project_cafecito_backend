@@ -15,7 +15,7 @@ const productoShema = new Schema({
   precio: {
     type: Number,
     required: true,
-    min: 1000,
+    min: 600,
     max: 100000,
   },
   imagen: {
