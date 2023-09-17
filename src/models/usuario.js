@@ -6,7 +6,7 @@ const usuarioSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    minLength: 5,
+    minLength: 4,
     maxLength: 12,
   },
   email: {
@@ -21,3 +21,7 @@ const usuarioSchema = new Schema({
     maxLength: 12,
   },
 });
+
+const Usuario = mongoose.model("usuario", usuarioSchema);
+
+export default Usuario;

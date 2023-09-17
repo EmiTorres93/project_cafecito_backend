@@ -4,7 +4,7 @@ import mongoose, { Schema } from "mongoose";
 /* moongose, librería que me ayudó a conectarme a la BDD, me ayudará tb a modelar el dato que
 yo pretendo guardar en la BD, entonces importamos moongose y a moongose le pedimos que tb nos
 importe el Schema que es como una plantilla o estructura */
-const productoShema = new Schema({
+const productoSchema = new Schema({
   nombreProducto: {
     type: String,
     required: true,
@@ -33,8 +33,9 @@ const productoShema = new Schema({
 });
 
 // vamos a generar un modelo
-const Producto = mongoose.model("producto", productoShema);
+const Producto = mongoose.model("producto", productoSchema);
 
 export default Producto;
 
-//a Producto debo usarla en los ontrollers y para eso debo invocar esa palabra Producto, puedo usar el export al lado de const o el export default
+//a Producto debo usarla en los controllers y para eso debo invocar esa palabra Producto,
+//puedo usar el export al lado de const o el export default

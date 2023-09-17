@@ -35,4 +35,4 @@ procese y le envíe una respuesta */
 // http://localhost:4000/api/producto --> nombre de dominio de mi backend
 // ahora vamos a configurar la parte del /api
 app.use("/api", productoRouter);
-app.use("/api", userRouter);
+app.use("/api/user", userRouter);
