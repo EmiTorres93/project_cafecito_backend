@@ -75,6 +75,7 @@ export const borrarProducto = async (req, res) => {
 export const obtenerProducto = async (req, res) => {
   try {
     const productoBuscado = await Producto.findById(req.params.id);
+    //se puede agregar un if para trabajar el caso de tener un null
     res.status(200).json(productoBuscado);
   } catch (error) {
     console.log(error);
